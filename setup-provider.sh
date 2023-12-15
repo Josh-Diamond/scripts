@@ -81,11 +81,11 @@ fi
 
 # Download binary
 
-OS_PLATFORM=$(uname -sp | tr '[:upper:] ' '[:lower:]_' | sed 's/x86_64/amd64/' | sed 's/i386/amd64/' | sed 's/arm/arm64/')
+# OS_PLATFORM=$(uname -sp | tr '[:upper:] ' '[:lower:]_' | sed 's/x86_64/amd64/' | sed 's/i386/amd64/' | sed 's/arm/arm64/')
 
-DIR=~/.terraform.d/plugins/terraform.local/local/${PROVIDER}/${VERSION_TAG}/${OS_PLATFORM}
+DIR=~/.terraform.d/plugins/terraform.local/local/${PROVIDER}/${VERSION_TAG}/linux_amd64
 sudo mkdir -p $DIR
-curl -sfL https://github.com/rancher/terraform-provider-${PROVIDER}/releases/download/${VERSION}/terraform-provider-${PROVIDER}_${VERSION_TAG}_${OS_PLATFORM}.zip | gunzip -c - > ${DIR}/terraform-provider-${PROVIDER}
+curl -sfL https://github.com/rancher/terraform-provider-${PROVIDER}/releases/download/${VERSION}/terraform-provider-${PROVIDER}_${VERSION_TAG}_linux_amd64.zip | gunzip -c - > ${DIR}/terraform-provider-${PROVIDER}
 # curl -sfLo "${DIR}/terraform-provider-${PROVIDER}_${VERSION_TAG}_${OS_PLATFORM}.zip" "https://github.com/rancher/terraform-provider-${PROVIDER}/releases/download/${VERSION}/terraform-provider-${PROVIDER}_${VERSION_TAG}_${OS_PLATFORM}.zip"
 # unzip -o "${DIR}/terraform-provider-${PROVIDER}_${VERSION_TAG}_${OS_PLATFORM}.zip" -d ${DIR}
 
